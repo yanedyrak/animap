@@ -12,15 +12,15 @@ export const Trending = () => {
       items: 5,
     },
     tablet: {
-      breakpoint: { max: 1823, min: 1024 },
+      breakpoint: { max: 1823, min: 1126 },
       items: 3,
     },
     tablet2: {
-      breakpoint: { max: 1023, min: 464 },
+      breakpoint: { max: 1125, min: 830 },
       items: 2,
     },
     mobile: {
-      breakpoint: { max: 464, min: 0 },
+      breakpoint: { max: 830, min: 0 },
       items: 1,
     },
   };
