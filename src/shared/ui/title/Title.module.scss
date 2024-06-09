@@ -3,16 +3,18 @@
   font-size: 100px;
 
   div {
-    display: inline-flex;
+    display: inline-block;
     align-items: center;
     div {
-      background-image: url(./img.png);
+      display: inline-block;
+      background-image: url(./img.jpeg);
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
-      padding-left: 20px;
+      margin: 0px 20px;
       width: 200px;
       height: 90px;
+      border-radius: 30px;
     }
     span {
       display: inline;

@@ -6,8 +6,8 @@ export const Title = () => {
       <div>
         <span>AniMap</span>
         <div></div>
+        Watch anime online for free
       </div>
-      Watch anime online for free
     </div>
   );
 };

@@ -1,16 +1,16 @@
 import { useAppDispatch } from "../../shared/hooks/useAppDispatch";
 import { useAppSelector } from "../../shared/hooks/useAppSelector";
-import { setGenre } from "../../shared/store/filterSlice";
+import { setGenre, setStatus, setType } from "../../shared/store/filterSlice";
 import { Filter } from "./filter/Filter";
 
 export const Filters = () => {
   const dispatch = useAppDispatch();
-  const { genre } = useAppSelector((state) => state.filter);
+  const filter = useAppSelector((state) => state.filter);
 
   return (
-    <div className="filters">
+    <div>
       <Filter
-        children={genre ? genre : "Genre"}
+        children={filter.genre ? filter.genre : "Genre"}
         items={[
           {
             label: "All",
@@ -30,6 +30,58 @@ export const Filters = () => {
             label: "Action",
             onClick: () => {
               dispatch(setGenre("Action"));
+            },
+            key: "2",
+          },
+        ]}
+      />
+      <Filter
+        children={filter.type ? filter.type : "Type"}
+        items={[
+          {
+            label: "All",
+            onClick: () => {
+              dispatch(setType(""));
+            },
+            key: "0",
+          },
+          {
+            label: "Film",
+            onClick: () => {
+              dispatch(setType("Film"));
+            },
+            key: "1",
+          },
+          {
+            label: "Serial",
+            onClick: () => {
+              dispatch(setType("Serial"));
+            },
+            key: "2",
+          },
+        ]}
+      />
+      <Filter
+        children={filter.status ? filter.status : "Status"}
+        items={[
+          {
+            label: "All",
+            onClick: () => {
+              dispatch(setStatus(""));
+            },
+            key: "0",
+          },
+          {
+            label: "Ended",
+            onClick: () => {
+              dispatch(setStatus("Ended"));
+            },
+            key: "1",
+          },
+          {
+            label: "Ongoing",
+            onClick: () => {
+              dispatch(setStatus("Ongoing"));
             },
             key: "2",
           },
