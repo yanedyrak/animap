@@ -1,0 +1,17 @@
+.button {
+  display: flex;
+
+  background-color: #f0f0f0;
+  padding: 10px 30px 10px 30px;
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  border-radius: 20px;
+  transition: 0.3s;
+  p {
+    margin-right: 70px;
+  }
+  &:hover {
+    background-color: #e0e0e0;
+  }
+}

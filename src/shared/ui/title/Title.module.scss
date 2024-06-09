@@ -1,0 +1,22 @@
+.title {
+  padding: 70px 100px 30px 100px;
+  font-size: 100px;
+
+  div {
+    display: inline-flex;
+    align-items: center;
+    div {
+      background-image: url(./img.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      padding-left: 20px;
+      width: 200px;
+      height: 90px;
+    }
+    span {
+      display: inline;
+      color: #987df1;
+    }
+  }
+}
