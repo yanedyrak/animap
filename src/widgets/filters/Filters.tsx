@@ -2,13 +2,14 @@ import { useAppDispatch } from "../../shared/hooks/useAppDispatch";
 import { useAppSelector } from "../../shared/hooks/useAppSelector";
 import { setGenre, setStatus, setType } from "../../shared/store/filterSlice";
 import { Filter } from "./filter/Filter";
-
+import styles from "./Filters.module.scss";
 export const Filters = () => {
   const dispatch = useAppDispatch();
   const filter = useAppSelector((state) => state.filter);
 
   return (
-    <div>
+    <div className={styles.container}>
+      <div className={styles.title}>Filters</div>
       <Filter
         children={filter.genre ? filter.genre : "Genre"}
         items={[

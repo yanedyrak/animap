@@ -4,6 +4,7 @@ import { TitleT } from "../../shared/types";
 import styles from "./Trending.module.scss";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import Skeleton from "../../shared/ui/skeleton/Skeleton";
 export const Trending = () => {
   const responsive = {
     desktop: {
@@ -31,10 +32,29 @@ export const Trending = () => {
   return (
     <div className={styles.container}>
       <p className={styles.title}>Trending</p>
-      {isLoading && <p>Loading...</p>}
+      {isLoading && (
+        <Carousel
+          responsive={responsive}
+          autoPlay
+          autoPlaySpeed={2000}
+          infinite
+          keyBoardControl
+          arrows={false}
+          className={styles.carousel}
+        >
+          {Array(5)
+            .fill(0)
+            .map((_, index) => (
+              <Skeleton key={index} />
+            ))}
+        </Carousel>
+      )}
       <Carousel
         responsive={responsive}
         autoPlay
+        autoPlaySpeed={2000}
+        infinite
+        keyBoardControl
         arrows={false}
         className={styles.carousel}
       >

@@ -9,10 +9,8 @@ export const Header = () => {
       </p>
       <div className={styles.links}>
         <Link to="/">Anime</Link>
-        <Link to="/">Manga</Link>
         <Link to="/">Random Anime</Link>
         <Link to="/">Top Anime</Link>
-        <Link to="/">Friends</Link>
       </div>
       <div className={styles.public}>
         <input type="text" placeholder="Search anime" />
