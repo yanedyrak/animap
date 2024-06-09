@@ -2,18 +2,14 @@ import { DownOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import { ConfigProvider, Dropdown, Space } from "antd";
 import styles from "./Filter.module.scss";
-const items: MenuProps["items"] = [
-  {
-    label: "First",
-    key: "0",
-  },
-  {
-    label: "Second",
-    key: "1",
-  },
-];
 
-export const Filter = ({ children }) => (
+export const Filter = ({
+  children,
+  items,
+}: {
+  children: string;
+  items: MenuProps["items"];
+}) => (
   <ConfigProvider
     theme={{
       components: {
