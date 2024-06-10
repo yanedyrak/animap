@@ -50,7 +50,6 @@ export const Announce = () => {
         Array(4)
           .fill(0)
           .map((_, index) => <SkeletonAnnounce key={index} />)}
-      {console.log(data)}
       <div className={styles.announceList}>
         {data &&
           data[0].list.map((item: any) => (

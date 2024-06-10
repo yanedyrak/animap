@@ -13,7 +13,7 @@ export const Header = () => {
         <span className={styles.logo}>Map</span>
       </p>
       <div className={styles.links}>
-        <Link to="/">Anime</Link>
+        <Link to="/catalog">Catalog</Link>
         <Link to="/">Random Anime</Link>
         <Link to="/">Top Anime</Link>
       </div>

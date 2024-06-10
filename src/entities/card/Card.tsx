@@ -10,16 +10,17 @@ export const Card = ({ title }: { title: TitleT }) => {
           <p className={styles.text}>{title.status.string}</p>
           <p className={styles.text}>{title.season.year}</p>
         </div>
-
         <p className={styles.textAbout}>
-          {title.type.episodes}
-          {title.type.episodes > 1 ? " episodes" : " episode"}
+          {title.player.episodes.last && title.player.episodes.last}
+          {title.player.episodes.last && title.player.episodes.last > 1
+            ? " episodes"
+            : " episode"}
         </p>
       </div>
       <img
         className={styles.img}
         src={`${IMG_URL}${title.posters.medium.url}`}
-        alt=""
+        alt="title image"
       />
     </div>
   );

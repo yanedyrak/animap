@@ -16,7 +16,7 @@ export const BurgerMenu = () => {
         open={open}
       >
         <div className={styles.container}>
-          <Link to="/">Anime</Link>
+          <Link to="/">Catalog</Link>
           <Link to="/">Random Anime</Link>
           <Link to="/">Top Anime</Link>
           <button>Регистрация</button>
