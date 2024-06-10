@@ -1,0 +1,33 @@
+.container {
+  height: 100%;
+  padding: 100px 20px 100px 20px;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: space-around;
+  a {
+    width: max-width;
+    color: rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+    font-size: 35px;
+    transition: 0.5s;
+    opacity: 0.5;
+    &:hover {
+      opacity: 1;
+    }
+  }
+  button {
+    font-size: 20px;
+    color: white;
+    padding: 20px 40px 20px 40px;
+    background-color: #987df1;
+    border-radius: 30px;
+    border: none;
+    transition: 0.3s;
+    cursor: pointer;
+    &:hover {
+      background-color: #6539f7;
+      color: white;
+    }
+  }
+}

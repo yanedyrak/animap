@@ -1,6 +1,11 @@
 import { useAppDispatch } from "../../shared/hooks/useAppDispatch";
 import { useAppSelector } from "../../shared/hooks/useAppSelector";
-import { setGenre, setStatus, setType } from "../../shared/store/filterSlice";
+import {
+  setGenre,
+  setStatus,
+  setType,
+  setYears,
+} from "../../shared/store/filterSlice";
 import { Filter } from "./filter/Filter";
 import styles from "./Filters.module.scss";
 import Carousel from "react-multi-carousel";
@@ -28,7 +33,14 @@ export const Filters = () => {
   const filter = useAppSelector((state) => state.filter);
   return (
     <div className={styles.carousel}>
-      <Carousel responsive={responsive} arrows={false} infinite>
+      <Carousel
+        responsive={responsive}
+        arrows={false}
+        infinite
+        autoPlay
+        autoPlaySpeed={7000}
+        keyBoardControl
+      >
         <Filter
           children={filter.genre ? filter.genre : "Genre"}
           items={[
@@ -108,26 +120,26 @@ export const Filters = () => {
           ]}
         />
         <Filter
-          children={filter.status ? filter.status : "Sorted by"}
+          children={filter.years ? filter.years : "Sorted by"}
           items={[
             {
               label: "All",
               onClick: () => {
-                dispatch(setStatus(""));
+                dispatch(setYears(""));
               },
               key: "0",
             },
             {
               label: "Popularity",
               onClick: () => {
-                dispatch(setStatus("Popularity"));
+                dispatch(setYears("Popularity"));
               },
               key: "1",
             },
             {
               label: "Date",
               onClick: () => {
-                dispatch(setStatus("Date"));
+                dispatch(setYears("Date"));
               },
               key: "2",
             },

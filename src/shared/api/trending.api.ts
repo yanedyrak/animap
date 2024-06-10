@@ -7,6 +7,10 @@ export const trendingApi = createApi({
     getTrending: build.query({
       query: () => "/title/list?id_list=9021,9061,9022,9024,9014",
     }),
+    getAnnounce: build.query({
+      query: (day: number) =>
+        `/title/schedule?filter=id,names,announce,player&days=${day}`,
+    }),
   }),
 });
-export const { useGetTrendingQuery } = trendingApi;
+export const { useGetTrendingQuery, useGetAnnounceQuery } = trendingApi;

@@ -21,3 +21,15 @@
     }
   }
 }
+@media (max-width: 800px) {
+  .title {
+    padding: 70px 40px 0px 40px;
+    font-size: 42px;
+    div {
+      div {
+        width: 100px;
+        height: 50px;
+      }
+    }
+  }
+}

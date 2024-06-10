@@ -2,7 +2,10 @@ import { Link } from "react-router-dom";
 import styles from "./Header.module.scss";
 import { BurgerSVG } from "../../shared/assets/BurgerSVG";
 import { SearchSVG } from "../../shared/assets/SearchSVG";
+import { useAppDispatch } from "../../shared/hooks/useAppDispatch";
+import { setOpen } from "../../shared/store/burgerSlice";
 export const Header = () => {
+  const dispatch = useAppDispatch();
   return (
     <header className={styles.header}>
       <p className={styles.title}>
@@ -20,7 +23,7 @@ export const Header = () => {
         </div>
         <input type="text" placeholder="Search anime" />
         <button>Registration</button>
-        <div className={styles.burger}>
+        <div onClick={() => dispatch(setOpen(true))} className={styles.burger}>
           <BurgerSVG />
         </div>
       </div>

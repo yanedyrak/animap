@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 const FilterSlice = createSlice({
   name: "filter",
@@ -10,20 +10,20 @@ const FilterSlice = createSlice({
     ageRestriction: "",
   },
   reducers: {
-    setGenre(state, action) {
+    setGenre: (state, action: PayloadAction<string>) => {
       state.genre = action.payload;
     },
 
-    setType(state, action) {
+    setType: (state, action: PayloadAction<string>) => {
       state.type = action.payload;
     },
-    setStatus(state, action) {
+    setStatus: (state, action: PayloadAction<string>) => {
       state.status = action.payload;
     },
-    setYears(state, action) {
+    setYears: (state, action: PayloadAction<string>) => {
       state.years = action.payload;
     },
-    setAgeRestriction(state, action) {
+    setAgeRestriction: (state, action: PayloadAction<string>) => {
       state.ageRestriction = action.payload;
     },
   },
