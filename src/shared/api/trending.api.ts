@@ -14,7 +14,14 @@ export const trendingApi = createApi({
     getUpdates: build.query({
       query: () => `/title/updates?limit=10`,
     }),
+    getTitle: build.query({
+      query: (id: string) => `/title?id=${id}`,
+    }),
   }),
 });
-export const { useGetTrendingQuery, useGetAnnounceQuery, useGetUpdatesQuery } =
-  trendingApi;
+export const {
+  useGetTrendingQuery,
+  useGetAnnounceQuery,
+  useGetUpdatesQuery,
+  useGetTitleQuery,
+} = trendingApi;

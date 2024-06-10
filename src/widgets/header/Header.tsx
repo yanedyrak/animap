@@ -8,10 +8,13 @@ export const Header = () => {
   const dispatch = useAppDispatch();
   return (
     <header className={styles.header}>
-      <p className={styles.title}>
-        Ani
-        <span className={styles.logo}>Map</span>
-      </p>
+      <Link to="/">
+        <p className={styles.title}>
+          Ani
+          <span className={styles.logo}>Map</span>
+        </p>
+      </Link>
+
       <div className={styles.links}>
         <Link to="/catalog">Catalog</Link>
         <Link to="/">Random Anime</Link>

@@ -1,5 +1,6 @@
 import { CatalogPage } from "../../pages/CatalogPage";
 import { MainPage } from "../../pages/MainPage";
+import { TitlePage } from "../../pages/titlePage/TitlePage";
 
 export const data = [
   {
@@ -9,5 +10,9 @@ export const data = [
   {
     path: "/catalog",
     element: <CatalogPage />,
+  },
+  {
+    path: "/title/:id",
+    element: <TitlePage />,
   },
 ];
