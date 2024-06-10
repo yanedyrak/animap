@@ -6,17 +6,21 @@ export const Card = ({ title }: { title: TitleT }) => {
     <div className={styles.container}>
       <div className={styles.description}>
         <p className={styles.title}>{title.names.ru}</p>
-        <div>
-          <p>{title.status.string}</p>
-          <p>{title.season.year}</p>
+        <div className={styles.info}>
+          <p className={styles.text}>{title.status.string}</p>
+          <p className={styles.text}>{title.season.year}</p>
         </div>
 
-        <p>
+        <p className={styles.textAbout}>
           {title.type.episodes}
           {title.type.episodes > 1 ? " episodes" : " episode"}
         </p>
       </div>
-      <img src={`${IMG_URL}${title.posters.medium.url}`} alt="" />
+      <img
+        className={styles.img}
+        src={`${IMG_URL}${title.posters.medium.url}`}
+        alt=""
+      />
     </div>
   );
 }; //
