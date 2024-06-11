@@ -12,7 +12,7 @@ export const trendingApi = createApi({
       query: (day: number) =>
         `/title/schedule?filter=id,names,announce,player&days=${day}`,
     }),
-    getUpdates: build.query<TitleT[], void>({
+    getUpdates: build.query<{ list: TitleT[] }, void>({
       query: () => `/title/updates?limit=10`,
     }),
     getTitle: build.query<TitleT, string>({
