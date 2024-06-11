@@ -1,0 +1,48 @@
+.container {
+  position: absolute;
+  z-index: 2;
+  top: 100px;
+  .card {
+    overflow-y: scroll;
+    transition: 0.5s;
+    width: 600px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 30px;
+    background-color: #f0f0f0;
+    padding: 20px 30px 20px 30px;
+    margin: 10px 0 30px 0;
+    gap: 30px;
+    .info {
+      justify-content: flex-start;
+      width: max-content;
+      .title {
+        font-size: 18px;
+        color: rgba(0, 0, 0, 0.7);
+      }
+      .titleEn {
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 16px;
+      }
+    }
+    img {
+      border-radius: 20px;
+      width: 100px;
+    }
+    .stars {
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-weight: bold;
+      color: rgba(0, 0, 0, 0.5);
+    }
+
+    &:hover {
+      filter: brightness(0.8);
+    }
+  }
+}

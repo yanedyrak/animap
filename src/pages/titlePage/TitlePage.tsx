@@ -5,6 +5,8 @@ import { IMG_URL } from "../../shared/api/urlValues";
 import { StarSVG } from "../../shared/assets/StarSVG";
 import SkeletonLinks from "../../shared/ui/skeleton/SkeletonLinks";
 import Skeleton from "../../shared/ui/skeleton/Skeleton";
+import { VideoPlayer } from "../../entities/videoPlayer/VideoPlayer";
+
 export const TitlePage = () => {
   const { id } = useParams();
   const { data, isLoading } = useGetTitleQuery(id as string);
@@ -27,7 +29,6 @@ export const TitlePage = () => {
       {data && (
         <>
           <p className={styles.title}>{data.names.ru}</p>
-
           <p className={styles.titleEn}>{data.names.en}</p>
           <div className={styles.content}>
             <div className={styles.titleInfo}>
@@ -49,6 +50,7 @@ export const TitlePage = () => {
             </div>
             <div className={styles.description}>{data.description}</div>
           </div>
+          <VideoPlayer title={data} />
         </>
       )}
     </div>

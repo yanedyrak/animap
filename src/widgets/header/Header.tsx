@@ -6,9 +6,20 @@ import { useAppDispatch } from "../../shared/hooks/useAppDispatch";
 import { setOpen } from "../../shared/store/burgerSlice";
 import { useGetRandomTitleQuery } from "../../shared/api/trending.api";
 import SkeletonLinks from "../../shared/ui/skeleton/SkeletonLinks";
+
+import { useEffect, useState } from "react";
+import { useDebounce } from "../../shared/hooks/useDebounce";
+import { setSearch } from "../../shared/store/searchSlice";
+import { SearchTitle } from "../../entities/searchTitle/SearchTitle";
+
 export const Header = () => {
   const { data, isLoading, refetch } = useGetRandomTitleQuery();
+  const [value, setValue] = useState("");
+  const debouncedValue = useDebounce({ value: value, delay: 500 });
   const dispatch = useAppDispatch();
+  useEffect(() => {
+    dispatch(setSearch(debouncedValue));
+  }, [debouncedValue]);
   return (
     <header className={styles.header}>
       <Link to="/">
@@ -37,7 +48,12 @@ export const Header = () => {
         <div className={styles.search}>
           <SearchSVG />
         </div>
-        <input type="text" placeholder="Search anime" />
+        <input
+          onChange={(e) => setValue(e.target.value)}
+          type="text"
+          placeholder="Search anime"
+        />
+        {value && <SearchTitle setValue={setValue} />}
         <button>Registration</button>
         <div onClick={() => dispatch(setOpen(true))} className={styles.burger}>
           <BurgerSVG />

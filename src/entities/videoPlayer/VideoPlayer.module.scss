@@ -1,0 +1,23 @@
+.container {
+  width: 80%;
+  margin: 0 auto;
+  .selectEpisode {
+    margin-bottom: 50px;
+    width: min-content;
+    padding: 20px;
+    border-radius: 30px;
+    background-color: #f0f0f0;
+    border: none;
+    transition: 0.5s;
+    cursor: pointer;
+    outline: none;
+    &:hover {
+      background-color: #e0e0e0;
+    }
+  }
+}
+@media (max-width: 1000px) {
+  .container {
+    width: 97%;
+  }
+}

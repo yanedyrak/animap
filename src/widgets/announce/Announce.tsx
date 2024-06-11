@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Day } from "../../entities/day/Day";
 import { useGetAnnounceQuery } from "../../shared/api/trending.api";
 import { days } from "../../shared/days";
@@ -53,16 +54,18 @@ export const Announce = () => {
       <div className={styles.announceList}>
         {data &&
           data[0].list.map((item: any) => (
-            <div key={item.id} className={styles.announce}>
-              <div>
-                <p className={styles.titleName}>{item.names.ru}</p>
-                <p>{item.names.en}</p>
+            <Link key={item.id} to={`/title/${item.id}`}>
+              <div className={styles.announce}>
+                <div>
+                  <p className={styles.titleName}>{item.names.ru}</p>
+                  <p>{item.names.en}</p>
+                </div>
+                <div className={styles.extra}>{item.announce}</div>
+                <div className={styles.episodes}>
+                  {item.player.episodes.last} episode
+                </div>
               </div>
-              <div className={styles.extra}>{item.announce}</div>
-              <div className={styles.episodes}>
-                {item.player.episodes.last} episode
-              </div>
-            </div>
+            </Link>
           ))}
       </div>
     </>
