@@ -24,10 +24,7 @@ export const Trending = () => {
       items: 1,
     },
   };
-  const { data = [], isLoading } = useGetTrendingQuery({
-    refetchOnMount: false,
-    refetchOnWindowFocus: false,
-  });
+  const { data, isLoading } = useGetTrendingQuery();
 
   return (
     <div className={styles.container}>
@@ -58,9 +55,10 @@ export const Trending = () => {
         arrows={false}
         className={styles.carousel}
       >
-        {data.map((title: TitleT, index: number) => (
-          <Card key={index} title={title} />
-        ))}
+        {data &&
+          data.map((title: TitleT, index: number) => (
+            <Card key={index} title={title} />
+          ))}
       </Carousel>
       <button>See more </button>
     </div>
