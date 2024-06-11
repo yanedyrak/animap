@@ -24,7 +24,7 @@ export const Trending = () => {
       items: 1,
     },
   };
-  const { data, isLoading } = useGetTrendingQuery();
+  const { data = [], isLoading } = useGetTrendingQuery();
 
   return (
     <div className={styles.container}>
