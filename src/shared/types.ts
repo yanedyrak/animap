@@ -14,7 +14,8 @@ export type TitleT = {
   season: seasonT;
   year: number;
   week_day: number;
-  description: description_typeT;
+  in_favorites: number;
+  description: string;
   blocked: blockedT;
   player: playerT;
   torrents: torrentsT;
@@ -154,10 +155,4 @@ export type files_listT = {
   file: string;
   size: number;
   offset: number;
-};
-
-export type description_typeT = {
-  html: string; //html – Описание тайтла в виде html (в том виде в каком оно на сайте)
-  plain: string; // plain – Описание тайтла в виде текста без дополнительного форматирования
-  no_view_order: string; //no_view_order – Описание тайтла в виде текста без дополнительного форматирования и порядка просмотра
 };

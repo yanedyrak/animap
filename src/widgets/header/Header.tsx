@@ -4,7 +4,10 @@ import { BurgerSVG } from "../../shared/assets/BurgerSVG";
 import { SearchSVG } from "../../shared/assets/SearchSVG";
 import { useAppDispatch } from "../../shared/hooks/useAppDispatch";
 import { setOpen } from "../../shared/store/burgerSlice";
+import { useGetRandomTitleQuery } from "../../shared/api/trending.api";
+import SkeletonLinks from "../../shared/ui/skeleton/SkeletonLinks";
 export const Header = () => {
+  const { data, isLoading, refetch } = useGetRandomTitleQuery();
   const dispatch = useAppDispatch();
   return (
     <header className={styles.header}>
@@ -16,9 +19,19 @@ export const Header = () => {
       </Link>
 
       <div className={styles.links}>
-        <Link to="/catalog">Catalog</Link>
-        <Link to="/">Random Anime</Link>
-        <Link to="/">Top Anime</Link>
+        {isLoading &&
+          Array(3)
+            .fill(0)
+            .map((_, index) => <SkeletonLinks key={index} />)}
+        {data && (
+          <>
+            <Link to="/catalog">Catalog</Link>
+            <Link to={`/title/${data.id}`} onClick={() => refetch()}>
+              Random Anime
+            </Link>
+            <Link to="/">Top Anime</Link>
+          </>
+        )}
       </div>
       <div className={styles.public}>
         <div className={styles.search}>

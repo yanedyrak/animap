@@ -3,6 +3,8 @@ import styles from "./TitlePage.module.scss";
 import { useGetTitleQuery } from "../../shared/api/trending.api";
 import { IMG_URL } from "../../shared/api/urlValues";
 import { StarSVG } from "../../shared/assets/StarSVG";
+import SkeletonLinks from "../../shared/ui/skeleton/SkeletonLinks";
+import Skeleton from "../../shared/ui/skeleton/Skeleton";
 export const TitlePage = () => {
   const { id } = useParams();
   const { data, isLoading } = useGetTitleQuery(id as string);
@@ -12,9 +14,20 @@ export const TitlePage = () => {
       <Link to="/">
         <p className={styles.back}>{"<"} Back</p>
       </Link>
+      {isLoading && (
+        <>
+          <SkeletonLinks width={"80%"} height="100px" />
+          <SkeletonLinks width="60%" height="100px" />
+          <div className={styles.content}>
+            <Skeleton />
+            <Skeleton width="50%" height="50%" />
+          </div>
+        </>
+      )}
       {data && (
         <>
           <p className={styles.title}>{data.names.ru}</p>
+
           <p className={styles.titleEn}>{data.names.en}</p>
           <div className={styles.content}>
             <div className={styles.titleInfo}>
